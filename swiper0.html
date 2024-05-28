@@ -56,17 +56,23 @@
       opacity: 1; /* span 요소를 불투명하게 설정 */
     }
 
-    .ad0 {
+    .bg0 {
       background-image: url(https://www.wwdoctor.com/static/asset/images/main/banner_bg_01.jpg); /* 배경 이미지 설정 */
     }
 
-    .ad1 {
+    .bg1 {
       background-image: url(https://www.wwdoctor.com/static/asset/images/main//banner_bg_02.jpg); /* 배경 이미지 설정 */
     }
 
-    .ad2 {
+    .bg2 {
       background-image: url(https://www.wwdoctor.com/static/asset/images/main//banner_bg_03.jpg); /* 배경 이미지 설정 */
     }
+    /* .swiper-slide{
+      height: 100vw;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    } */
 
     /* .swiper-slide img {
       display: block;
@@ -86,12 +92,15 @@
       opacity: 1; /* 불투명하게 설정 */
       background-color: transparent; /* 배경색을 투명으로 설정 */
       /* background: rgba(0, 0, 0, 0.2); */
+      border-radius: 0;
+      background-color: transparent !important;
+      opacity: 1 !important;
     }
 
     /* 활성화된 버튼 */
     .swiper-pagination-bullet-active {
       /* color: #fff; */
-      color: #007aff; /* 활성화된 버튼의 글자색을 파란색으로 설정 */
+      color: rgb(0, 99, 58); /* 활성화된 버튼의 글자색을 파란색으로 설정 */
       background-color: transparent; /* 배경색을 투명으로 설정 */
     }
   </style>
@@ -101,11 +110,11 @@
   <!-- Swiper -->
   <div class="swiper mySwiper" id="pyengkang"> <!-- Swiper 컨테이너 -->
     <div class="swiper-wrapper"> <!-- 슬라이드들을 감싸는 래퍼 -->
-      <div class="swiper-slide ad0">
+      <div class="swiper-slide bg0">
           <span>광고배너타이틀</span> <!-- 슬라이드의 텍스트 -->
       </div>
-      <div class="swiper-slide ad1"><span>광고배너타이틀</span></div>
-      <div class="swiper-slide ad2"><span>광고배너타이틀</span></div>
+      <div class="swiper-slide bg1"><span>광고배너타이틀</span></div>
+      <div class="swiper-slide bg2"><span>광고배너타이틀</span></div>
     </div>
     <div class="swiper-pagination"></div> <!-- 페이지네이션을 위한 컨테이너 -->
   </div>
@@ -115,6 +124,7 @@
 
   <!-- Initialize Swiper -->
   <script>
+    const bannerText = ["편강한의원 찐후기", "한약소개", "예약하기"]
     const __swiper = new Swiper("#pyengkang.mySwiper", { /* Swiper 초기화 */
       loop: true, /* 슬라이더가 무한 루프하도록 설정 */
       autoplay: {
@@ -126,7 +136,7 @@
         el: "#pyengkang .swiper-pagination", /* 페이지네이션 요소 선택 */
         clickable: true, /* 페이지네이션 클릭 가능 설정 */
         renderBullet: function (index, className) { /* 커스텀 페이지네이션 버튼 생성 함수 */
-          return `<span class="${className}">뭐라도나오나?</span>`;
+          return `<span class="${className}">${bannerText[index]}</span>`;
         },
       },
     });
